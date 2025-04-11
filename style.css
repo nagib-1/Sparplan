@@ -82,6 +82,11 @@ body {
 #overview th,
 #overview td {
   border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
 
 #overview th,
@@ -100,7 +105,15 @@ body {
 }
 
 @media (max-width: 600px) {
-  #overview .card {
-    margin-bottom: 10px;
+
+  #overview table,
+  #overview th,
+  #overview td {
+    font-size: 0.8em;
+    padding: 6px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
   }
 }
