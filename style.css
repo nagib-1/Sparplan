@@ -1,147 +1,106 @@
-/* Grundlegendes Styling */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.section {
+  background: #fafafa;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#expenseListDisplay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#expenseListDisplay li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  font-size: 0.9em;
+}
+
+.expense-info {
+  margin-bottom: 5px;
+}
+
+.expense-name {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.expense-meta,
+.expense-dates,
+.expense-cost {
+  font-size: 0.8em;
+}
+
+.button-container {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.small-button {
+  padding: 3px 6px;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 3px;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.small-button:hover {
+  background: #333;
+}
+
+#overview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+#overview table,
+#overview th,
+#overview td {
+  border: 1px solid #ccc;
+}
+
+#overview th,
+#overview td {
+  text-align: center;
+  padding: 8px;
+}
+
+.total-row {
+  background: #e0ffe0;
+  font-weight: bold;
+}
+
+.year-section {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  #overview .card {
+    margin-bottom: 10px;
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f7f7f7;
-    color: #333;
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-  }
-  
-  h1, h2, h3 {
-    text-align: center;
-    color: #444;
-  }
-  
-  /* Abschnitte */
-  .section {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #fafafa;
-  }
-  
-  /* Formularelemente */
-  input[type="text"],
-  input[type="date"],
-  select {
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    margin: 6px 3px;
-    border: none;
-    border-radius: 4px;
-    background: #2196F3;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #1976D2;
-  }
-  
-  /* Styling für die Kostenliste – kompakte, inline Darstellung */
-  #expenseListDisplay ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #expenseListDisplay li {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  #expenseListDisplay li span {
-    white-space: nowrap;
-    font-size: 0.9em;
-  }
-  
-  /* Container für inline Buttons */
-  .button-container {
-    margin-left: auto;
-    display: flex;
-    gap: 5px;
-  }
-  
-  /* Kleinere Buttons in der Kostenliste */
-  .small-button {
-    padding: 5px 8px;
-    font-size: 0.8em;
-    border: none;
-    border-radius: 3px;
-    background: #555;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .small-button:hover {
-    background: #333;
-  }
-  
-  /* Tabellen Styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  table, th, td {
-    border: 1px solid #ccc;
-  }
-  
-  th, td {
-    text-align: center;
-    padding: 8px;
-  }
-  
-  /* Gesamtzeile in der Übersicht */
-  .total-row {
-    background: #e0ffe0;
-    font-weight: bold;
-  }
-  
-  /* Footer */
-  .footer {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .paypal-button img {
-    max-width: 150px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-    
-    button {
-      width: 100%;
-      margin: 5px 0;
-    }
-  }
-  
+}
