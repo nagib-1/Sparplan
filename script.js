@@ -248,11 +248,7 @@ function calculateOverview() {
     startDate = earliest;
     endYear = latest.getFullYear();
   }
-  if (window.innerWidth < 600) {
-    renderOverviewCards(startDate, endYear);
-  } else {
-    renderOverviewTable(startDate, endYear);
-  }
+  renderOverviewTable(startDate, endYear);
 }
 function renderOverviewTable(startDate, endYear) {
   let startYr = startDate.getFullYear();
@@ -300,39 +296,6 @@ function renderOverviewTable(startDate, endYear) {
   }
   document.getElementById("overview").innerHTML = html;
 }
-function renderOverviewCards(startDate, endYear) {
-  let startYr = startDate.getFullYear();
-  let html = "";
-  for (let year = startYr; year <= endYear; year++) {
-    let startMonth = (year === startYr) ? startDate.getMonth() : 0;
-    let section = `<h3 class="mb-3">Übersicht für ${year}</h3>`;
-    let totalAvailable = 0;
-    for (let m = startMonth; m < 12; m++) {
-      let current = new Date(year, m, 1);
-      let monthlyExpenses = 0;
-      expenseList.forEach(expense => {
-        if (expenseOccursInMonth(expense, current)) {
-          monthlyExpenses += expense.cost;
-        }
-      });
-      const available = monthlySalary - monthlyExpenses;
-      totalAvailable += available;
-      const monthStr = current.toLocaleDateString("de-DE", { month: "long", year: "numeric" });
-      section += `<div class="card mb-2">
-        <div class="card-body p-2">
-          <h5 class="card-title">${monthStr}</h5>
-          <p class="card-text mb-1">Ges. Kosten: ${formatter.format(monthlyExpenses)} €</p>
-          <p class="card-text mb-1">Einnahmen: ${formatter.format(monthlySalary)} €</p>
-          <p class="card-text font-weight-bold">Verfügbar: ${formatter.format(available)} €</p>
-        </div>
-      </div>`;
-    }
-    section += `<div class="alert alert-success font-weight-bold">Gesamt Verfügbar: ${formatter.format(totalAvailable)} €</div>`;
-    html += `<div class="year-section">${section}</div>`;
-  }
-  document.getElementById("overview").innerHTML = html;
-}
-
 function clearAll() {
   if (confirm("Möchtest Du wirklich alle Daten löschen?")) {
     localStorage.clear();
