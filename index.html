@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sparplan</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+  <div class="container my-4">
+    <h1 class="text-center mb-4">Sparplan</h1>
+    <section class="section mb-4">
+      <h2 class="mb-3">Monatliche Einnahmen</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Monatliche Einnahmen in €" id="loan">
+      </div>
+      <div class="mb-2">
+        <button class="btn btn-primary" onclick="saveSalary()">Einnahmen speichern</button>
+        <button class="btn btn-secondary" id="editSalaryBtn" onclick="editSalary()" style="display:none;">Einnahmen
+          bearbeiten</button>
+      </div>
+      <div id="salaryDisplay"></div>
+    </section>
+    <section class="section mb-4">
+      <h2 class="mb-3">Kosten hinzufügen</h2>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="Name der Kosten" id="costName">
+        </div>
+        <div class="form-group col-md-6">
+          <select class="form-control" id="costType">
+            <option value="">***Kostenart auswählen***</option>
+            <option value="fixed">Fixkosten</option>
+            <option value="var">Variable Kosten</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <select class="form-control" id="rate">
+            <option value="">***Intervall auswählen***</option>
+            <option value="monthly">Monatlich</option>
+            <option value="quarterly">Vierteljährlich</option>
+            <option value="semiAnnualy">Halbjährlich</option>
+            <option value="annualy">Jährlich</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" placeholder="Kosten in €" id="costsEuro">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Fälligkeit (1. Zahlung):</label>
+          <input type="date" class="form-control" id="dueDate">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Letzte Rate:</label>
+          <input type="date" class="form-control" id="lastRate">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="addExpense()">Kosten hinzufügen</button>
+    </section>
+    <section class="section mb-4">
+      <h3 class="mb-3">Monatliche Kosten</h3>
+      <div class="form-group">
+        <select class="form-control" id="sortSelect" onchange="sortExpenses()">
+          <option value="">Sortieren nach:</option>
+          <option value="name_asc">Name aufsteigend</option>
+          <option value="name_desc">Name absteigend</option>
+          <option value="costType_asc">Kostenart aufsteigend</option>
+          <option value="costType_desc">Kostenart absteigend</option>
+          <option value="rate_asc">Intervall aufsteigend</option>
+          <option value="rate_desc">Intervall absteigend</option>
+          <option value="cost_asc">Betrag aufsteigend</option>
+          <option value="cost_desc">Betrag absteigend</option>
+          <option value="dueDate_asc">Fälligkeit ab aufsteigend</option>
+          <option value="dueDate_desc">Fälligkeit ab absteigend</option>
+          <option value="lastRate_asc">Fälligkeit bis aufsteigend</option>
+          <option value="lastRate_desc">Fälligkeit bis absteigend</option>
+        </select>
+      </div>
+      <div id="expenseListDisplay"></div>
+    </section>
+    <section class="section mb-4">
+      <h2 class="mb-3">Übersicht</h2>
+      <div class="mb-2">
+        <button class="btn btn-primary" onclick="calculateOverview()">Berechnen</button>
+        <button class="btn btn-danger" onclick="clearAll()">Alle löschen</button>
+      </div>
+      <div id="overview"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

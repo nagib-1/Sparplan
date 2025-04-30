@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.section {
+  background: #fafafa;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#expenseListDisplay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#expenseListDisplay li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  font-size: 0.9em;
+}
+
+.expense-info {
+  margin-bottom: 5px;
+}
+
+.expense-name {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.expense-meta,
+.expense-dates,
+.expense-cost {
+  font-size: 0.8em;
+}
+
+.button-container {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.small-button {
+  padding: 3px 6px;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 3px;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.small-button:hover {
+  background: #333;
+}
+
+#overview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+#overview table,
+#overview th,
+#overview td {
+  border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+#overview th,
+#overview td {
+  text-align: center;
+  padding: 8px;
+}
+
+.total-row {
+  background: #e0ffe0;
+  font-weight: bold;
+}
+
+.year-section {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+
+  #overview table,
+  #overview th,
+  #overview td {
+    font-size: 0.8em;
+    padding: 6px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
